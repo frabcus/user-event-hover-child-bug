@@ -1,0 +1,31 @@
+{
+  "name": "user-event-hover-child-bug",
+  "keywords": [],
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "5.16.3",
+    "@testing-library/react": "13.0.0",
+    "@testing-library/user-event": "^14.2.0",
+    "react": "^18.2.0",
+    "react-dom": "18.0.0",
+    "react-popper-tooltip": "^4.4.1"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1"
+  },
+  "scripts": {
+    "start": "BROWSER=none react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "format": "prettier --write \"**/*.+(js|json|css|md|mdx|html)\""
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
