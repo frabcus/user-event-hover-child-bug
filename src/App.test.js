@@ -1,20 +1,37 @@
 import {renderApp, screen, waitFor} from './testEnv'
 
-const TriggerText = 'Hover over me'
-const TooltipText = 'This is the tooltip'
+test('hover trigger without span', async () => {
+  const triggerText = 'Hover over me without span'
+  const tooltipText = 'This is the tooltip without span'
 
-test('hover trigger', async () => {
-  //render(<Tooltip options={{trigger: 'hover'}} />)
   const {user} = renderApp()
 
   // tooltip not visible initially
-  expect(screen.queryByText(TooltipText)).not.toBeInTheDocument()
+  expect(screen.queryByText(tooltipText)).not.toBeInTheDocument()
 
   // tooltip shown on hover in
-  const triggerElement = screen.getByText(TriggerText)
+  const triggerElement = screen.getByText(triggerText)
   expect(triggerElement).toBeInTheDocument()
   await user.hover(triggerElement)
   await waitFor(() =>
-    expect(screen.queryByText(TooltipText)).toBeInTheDocument(),
+    expect(screen.queryByText(tooltipText)).toBeInTheDocument(),
+  )
+})
+
+test('hover trigger with span', async () => {
+  const triggerText = 'Hover over me with span'
+  const tooltipText = 'This is the tooltip with span'
+
+  const {user} = renderApp()
+
+  // tooltip not visible initially
+  expect(screen.queryByText(tooltipText)).not.toBeInTheDocument()
+
+  // tooltip shown on hover in
+  const triggerElement = screen.getByText(triggerText)
+  expect(triggerElement).toBeInTheDocument()
+  await user.hover(triggerElement)
+  await waitFor(() =>
+    expect(screen.queryByText(tooltipText)).toBeInTheDocument(),
   )
 })

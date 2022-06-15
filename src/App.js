@@ -28,6 +28,12 @@ export const Tooltip = ({children, tooltip, ...props}) => {
 
 export function App() {
   return (
-    <Tooltip tooltip="This is the tooltip"><span>Hover over me</span></Tooltip>
+    <div>
+        <h1>Without span</h1>
+        <Tooltip tooltip="This is the tooltip without span">Hover over me without span</Tooltip>
+
+        <h1>With span</h1>
+        <Tooltip tooltip="This is the tooltip with span"><span>Hover over me with span</span></Tooltip>
+    </div>
   )
 }
